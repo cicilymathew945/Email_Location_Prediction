@@ -6,8 +6,8 @@ Project Overview
 
 This project aims to predict the target folder location associated with emails from the famous Enron dataset. By leveraging natural language processing (NLP) and machine learning classification techniques, we analyze email metadata and content to determine the origin or destination locale.
 
-Dataset
-
+🔗 Enron Email Dataset (Original) — Contains ~500,000 emails from ~150 employees
+https://www.kaggle.com/datasets/wcukierski/enron-email-dataset
 We utilized the Enron Email Dataset sourced from Kaggle. This dataset contains approximately 500,000 emails from over 150 users, primarily Enron senior management.
 
 Data Preprocessing & EDA
