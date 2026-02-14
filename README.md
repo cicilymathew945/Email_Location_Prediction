@@ -1,61 +1,87 @@
-# Email_Location_Prediction
+# 📧 Email Location Prediction
 
-Email Location Prediction using the Enron Dataset
+*Predicting email folder locations using NLP and Machine Learning on the Enron Dataset*
 
-Project Overview
+---
 
-This project aims to predict the target folder location associated with emails from the famous Enron dataset. By leveraging natural language processing (NLP) and machine learning classification techniques, we analyze email metadata and content to determine the origin or destination locale.
+## 📘 Project Overview
 
-🔗 Enron Email Dataset (Original) — Contains ~500,000 emails from ~150 employees
-https://www.kaggle.com/datasets/wcukierski/enron-email-dataset
-We utilized the Enron Email Dataset sourced from Kaggle. This dataset contains approximately 500,000 emails from over 150 users, primarily Enron senior management.
+This project aims to **predict the target folder location** associated with emails from the **Enron dataset**.
+By leveraging **Natural Language Processing (NLP)** and **Machine Learning classification** techniques, we analyze both **email metadata** and **content** to infer the destination or origin folder.
 
-Data Preprocessing & EDA
+📂 **Dataset Used:**
+🔗 [Enron Email Dataset (Original) — Kaggle](https://www.kaggle.com/datasets/wcukierski/enron-email-dataset)
+Contains approximately **500,000 emails** from **150+ Enron employees**, primarily senior management.
 
-Exploratory Data Analysis (EDA): Performed initial investigations to understand the distribution of emails across various locations.
+---
 
-Data Pruning: To ensure statistical significance and model robustness, we applied a threshold filter. Locations with 5 or fewer emails were dropped from the analysis to prevent noise and overfitting on sparse classes.
+## 🩹 Data Preprocessing & EDA
 
-Modeling Approaches
+* **Exploratory Data Analysis (EDA):** Investigated email distribution across different locations.
+* **Data Pruning:** Applied a filter to remove locations with ≤5 emails to ensure statistical reliability and reduce noise.
+* **Text Cleaning:** Removed stopwords, HTML tags, and special characters for cleaner text input.
 
-The project followed an iterative approach to improve prediction accuracy:
+---
 
-Attempt 1: Baseline Modeling & NLP
+## 🧠 Modeling Approaches
 
-Feature Engineering: Created initial numerical features from the email metadata.
+### 🔹 Attempt 1: Baseline Modeling (TF-IDF + Logistic Regression)
 
-Correlation Analysis: Studied the relationships between numerical features to identify predictors.
+* **Feature Engineering:** Extracted numerical features (e.g., timestamp, recipients).
+* **Correlation Analysis:** Identified key predictive relationships.
+* **Text Vectorization:** Implemented **TF-IDF** on *Subject* and *Body*.
+* **Model:** Logistic Regression (baseline).
 
-Text Vectorization: Implemented TF-IDF Vectorizer on the Subject and Email Body.
+---
 
-Model: Logistic Regression.
+### 🔹 Attempt 2: Hybrid Feature Integration
 
-Attempt 2: Hybrid Feature Integration
+* **Approach:** Combined **TF-IDF** text features with **engineered metadata**.
+* **Model:** Logistic Regression.
+* **Goal:** Evaluate whether metadata adds predictive value beyond text.
 
-Approach: Combined the text-based features (TF-IDF) with the engineered numerical features from Attempt 1.
+---
 
-Model: Logistic Regression.
+### 🔹 Attempt 3: Deep Learning with BERT
 
-Goal: To determine if metadata (like timestamp or recipient count) provided additive value to the textual content.
+* **Approach:** Used **BERT (Bidirectional Encoder Representations from Transformers)** embeddings to capture contextual semantics.
+* **Feature Extraction:** Generated dense embeddings from email content using the HuggingFace *Transformers* library.
+* **Classifier:** Logistic Regression on BERT embeddings.
 
-Attempt 3: Deep Learning Embeddings
+---
 
-Approach: Moved beyond bag-of-words (TF-IDF) to capture semantic meaning using BERT (Bidirectional Encoder Representations from Transformers).
+## ⚙️ Requirements
 
-Feature Extraction: Used BERT to generate high-dimensional embeddings of the email text.
+| Library                       | Purpose                 |
+| ----------------------------- | ----------------------- |
+| Python 3.x                 | Core environment        |
+| Pandas / NumPy             | Data manipulation       |
+| Scikit-learn               | Modeling and evaluation |
+| Transformers (HuggingFace) | Text embeddings         |
+| Matplotlib / Seaborn       | Visualization           |
 
-Classification: Fed BERT embeddings into a Logistic Regression classifier.
+Install all dependencies:
 
-Requirements
+```bash
+pip install pandas numpy scikit-learn transformers matplotlib seaborn
+```
 
-Python 3.x
+---
 
-Pandas / Numpy
+## 📈 Results & Findings
 
-Scikit-learn
+* Baseline TF-IDF model provided a strong starting point.
+* Hybrid approach showed **marginal improvement** with metadata.
+* **BERT embeddings** significantly enhanced accuracy by capturing semantic nuance.
+* Demonstrated how deep contextual understanding improves real-world NLP tasks.
 
-Transformers (HuggingFace)
+---
 
-Matplotlib / Seaborn
+## 🚀 Future Work
 
-Results and Findings
+* Experiment with **fine-tuned BERT models** (e.g., *DistilBERT*, *RoBERTa*).
+* Implement **multi-class neural classifiers** for scalability.
+* Integrate **temporal patterns** and **email network features** for richer insights.
+
+---
+
