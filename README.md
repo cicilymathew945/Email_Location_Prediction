@@ -25,6 +25,8 @@ Contains approximately **500,000 emails** from **150+ Enron employees**, primari
 
 ## 🧠 Modeling Approaches
 
+### Discover Feature Importance of numerical features using logistic regression and selected " year, month, body_length, subject_length, is_replied, hour, day, weekend " based on threshold of 0.3 and above.
+
 ### 🔹 Attempt 1: Baseline Modeling (TF-IDF + Logistic Regression)
 
 * **Feature Engineering:** Extracted numerical features (e.g., timestamp, recipients).
